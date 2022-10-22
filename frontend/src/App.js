@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import Topbar from "./components/topbar";
+import Widget from "./components/widget";
 
 function App() {
+  let widgets = [];
+  for (let i = 0; i < 15; i++) {
+    widgets.push(<Widget />);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <Topbar />
+      </div>
+      <div
+        style={{
+          gridTemplateColumns: "repeat(4, 1fr)",
+          display: "grid",
+          gap: "64px",
+          marginTop: "32px",
+          marginLeft: "32px",
+        }}
+      >
+        {widgets.map((w) => {
+          return w;
+        })}
+      </div>
     </div>
   );
 }
