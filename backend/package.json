@@ -1,0 +1,16 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ArthurS1/pluie",
+  "author": "Arthur Souié",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "start": "yarn build && node build/src/index.js",
+    "debug": "yarn build && node --inspect build/src/index.js"
+  }
+}
