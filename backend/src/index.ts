@@ -1,4 +1,12 @@
-console.log('hehehehe');
+import express from 'express';
 
-console.info('ahah')
+const app = express();
+const port = 8000
 
+app.get('/', (_, res) => {
+  res.send('Hello World');
+})
+
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+})
