@@ -1,8 +1,6 @@
 import Topbar from "./components/topbar";
 import Widget from "./components/widget";
 import Button from "@mui/material/Button";
-import "./App.css";
-import axios from "axios";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -14,14 +12,8 @@ function App() {
   const handleClose = () => setOpen(false);
   let widgets = [];
 
-  axios
-    .get("http://localhost:8082/service/api/weather", {
-      params: { city: "Bangkok", days: 1 },
-    })
-    .then((response) => console.log(response.data));
-
-  for (let i = 0; i < 50; i++) {
-    widgets.push(<Widget />);
+  for (let i = 0; i < 1; i++) {
+    widgets.push(<Widget city="Bangkok" />);
   }
 
   return (
