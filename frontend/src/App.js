@@ -5,11 +5,22 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import InputLabel from "@mui/material/InputLabel";
 
 function App() {
+  const [selectedCity, setSelectedCity] = React.useState("");
   const [open, setOpen] = React.useState(false);
+
+  const handleChangeCity = (event) => {
+    setSelectedCity(event.target.value);
+    console.log(event.target.value);
+  };
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
   let widgets = [];
 
   for (let i = 0; i < 1; i++) {
@@ -57,12 +68,24 @@ function App() {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
+            Add a new weather widget
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            (Parametres des widgets ici à rajouter)
-          </Typography>
+          <Box sx={{ minWidth: 120 }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">City</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={selectedCity}
+                label="Age"
+                onChange={handleChangeCity}
+              >
+                <MenuItem value={"Bangkok"}>Bangkok</MenuItem>
+                <MenuItem value={"Paris"}>Paris</MenuItem>
+                <MenuItem value={"London"}>London</MenuItem>
+              </Select>
+            </FormControl>
+          </Box>
         </Box>
       </Modal>
     </div>
