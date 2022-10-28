@@ -15,7 +15,6 @@ export default function Widget({ city }) {
         params: { city: city, days: 1 },
       })
       .then((response) => {
-        console.log(response.data);
         setWeatherData(response.data.current);
         setLocation({
           city: response.data.name,
@@ -24,8 +23,10 @@ export default function Widget({ city }) {
         });
       });
   };
+
   useEffect(() => {
     getWeatherData();
+    //eslint-disable-next-line
   }, []);
 
   if (weatherData !== null)
