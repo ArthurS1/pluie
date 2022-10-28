@@ -32,8 +32,23 @@ const weatherAPI = {
                 icon: "https:" + temperature.current.condition.icon,
             },
             next_day: [],
-            alerts: temperature.alerts.alert,
+            alerts: {
+                headline: null,
+                severity: null,
+                category: null,
+                note: null,
+            },
         };
+        if (temperature.alerts.alert.lenght > 0) {
+            if (temperature.alerts.alert[0].headline)
+                weather.alerts.headline = temperature.alerts.alert[0].headline;
+            if (temperature.alerts.alert[0].severity)
+                weather.alerts.headline = temperature.alerts.alert[0].severity;
+            if (temperature.alerts.alert[0].category)
+                weather.alerts.headline = temperature.alerts.alert[0].category;
+            if (temperature.alerts.alert[0].note)
+                weather.alerts.headline = temperature.alerts.alert[0].note;
+        }
         const next = [];
         temperature.forecast.forecastday.forEach((element) => {
             next.push({
