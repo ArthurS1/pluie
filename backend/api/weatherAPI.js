@@ -11,7 +11,7 @@ const weatherAPI = {
         if (!days) days = 0;
         var temperature = await axios
             .get(
-                `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${city}&days=${days}&aqi=no&alerts=no`
+                `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${city}&days=${days}&aqi=no&alerts=yes`
             )
             .catch(function (err) {
                 return { service: 1, error: true };
@@ -32,6 +32,7 @@ const weatherAPI = {
                 icon: "https:" + temperature.current.condition.icon,
             },
             next_day: [],
+            alerts: temperature.alerts.alert,
         };
         const next = [];
         temperature.forecast.forecastday.forEach((element) => {
