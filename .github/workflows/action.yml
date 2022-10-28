@@ -24,7 +24,7 @@ jobs:
         cache-dependency-path: ./frontend/package-lock.json
     - run: cd ./frontend && npm ci
       name: Install dependencies
-    - run: npm run test
+    - run: cd ./frontend && npm run test
       name: Running unit tests
   deploy:
     runs-on: ubuntu-latest
