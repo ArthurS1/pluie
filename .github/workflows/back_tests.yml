@@ -1,0 +1,24 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Pluie CI
+
+on:
+  push:
+    branches: [ "static-web-app-deployment" ]
+
+jobs:
+  unit_tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/setup-node@v3
+      name: Use Node.js 18.x
+      with:
+        node-version: 18.x
+        cache: 'npm'
+        cache-dependency-path: ./backend/package-lock.json
+    - run: cd ./backend && npm ci
+      name: Install dependencies
+    - run: cd ./backend && echo "npm run test"
+      name: Running unit tests
