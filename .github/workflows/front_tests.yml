@@ -1,11 +1,9 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
-name: Pluie CI
+name: Pluie Frontend Testing
 
 on:
   push:
-    branches: [ "static-web-app-deployment" ]
+    branches:
+      - static-web-app-deployment-test
 
 jobs:
   unit_tests:
