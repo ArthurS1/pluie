@@ -2,7 +2,8 @@ name: Pluie Backend Testing
 
 on:
   push:
-    - static-web-app-deployment-test
+    branches:
+      - static-web-app-deployment-test
 
 jobs:
   unit_tests:
