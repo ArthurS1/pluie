@@ -1,8 +1,6 @@
 import Topbar from "./components/topbar";
 import Widget from "./components/widget";
 import Button from "@mui/material/Button";
-import Login from "./components/login";
-import Register from "./components/login";
 import * as React from "react";
 import { useState } from "react";
 import Box from "@mui/material/Box";
@@ -13,7 +11,6 @@ import TextField from "@mui/material/TextField";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import "./style/styles.css"
 
 function App() {
   const [selectedCity, setSelectedCity] = useState("");
@@ -35,10 +32,8 @@ function App() {
     });
 
   return (
-  <div className="App">
-   <div>
-        <Topbar />
-      </div>
+    <div className="App">
+      <Topbar />
       <div
         style={{
           gridTemplateColumns: "repeat(4, 1fr)",
@@ -152,7 +147,6 @@ function App() {
         theme="light"
       />
     </div>
-    
   );
 }
 
