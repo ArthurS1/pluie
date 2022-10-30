@@ -7,16 +7,23 @@ const Register = () => {
     const [email, setemail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const [message, setMessage] = useState('');
     const handleSubmit = async () => {
         const param = {
             username: username,
-            email: email,
+            mail: email,
             password: password 
         }
         axios
-            .post("http://localhost:8082/signup", param)
+            .post("http://localhost:8082/users/signup", param)
             .then((response) => {
-                console.log(response)
+                setError("")
+                setMessage("")
+                if (response.data.status !== 200)
+                    setError(response.data.message)
+                else
+                    setMessage(response.data.message)
             });
     }
 
@@ -30,6 +37,8 @@ const Register = () => {
             <div className="form-inner">
                 <div className="form">
                     <h2>Register</h2>
+                    {(error !== "") ? (<div className="error">{error}</div>) : ""}
+                    {(message !== "") ? (<div className="message">{message}</div>) : ""}
                     <div className="input-container">
                         <label>Email </label>
                         <input type="text" name="email" value={email} onChange={event => setemail(event.target.value)} required />
