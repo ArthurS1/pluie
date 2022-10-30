@@ -1,0 +1,141 @@
+/**input[type="text"],
+input[type="password"] {
+  height: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  background: #1976d2;
+  border: 1px solid #1976d2;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+input[type="submit"]:hover {
+  background: #339bff;
+  border: 1px solid #339bff;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.login-form {
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px;
+}
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input, button {
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #53565ac9;
+}
+
+form {
+  display: block;
+  position: relative;
+}
+
+form:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  z-index: 1;
+  background-image: linear-gradient(to bottom right, #acd7ff, #1976d2);
+}
+
+form .form-inner {
+  position: relative;
+  display: block;
+  background-color: #FFF;
+  padding: 30px;
+  z-index: 2;
+}
+
+form .form-inner h2 {
+  color: #1976d2;
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 30px;
+} 
+
+form .form-inner .input-container {
+  display: block;
+  width: 300px;
+  margin-bottom: 15px;
+}
+
+.form-inner .input-container label {
+  display: block;
+  color: #666;
+  font-size: 15px;
+  margin-bottom: 5px;
+  transition: 0.4s;
+}
+
+.form-inner .input-container:focus-within label {
+  color: #1976d2;
+}
+
+form .form-inner .input-container input {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #e4e4e4;
+  border-radius: 8px;
+  transition: 0.4s;
+}
+
+form .form-inner .input-container input:focus {
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+}
+
+form .form-inner input[type="submit"] {
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-image: linear-gradient(to right, #acd7ff, #acd7ff 50%, #1976d2);
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.4s;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+form .form-inner input[type="submit"]:hover {
+  background-position: 100% 0%;
+}
