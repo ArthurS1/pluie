@@ -3,7 +3,7 @@ name: Backend Testing
 on:
   push:
     branches:
-      - static-web-app-deployment-test
+      - main
 
 jobs:
   unit_tests:

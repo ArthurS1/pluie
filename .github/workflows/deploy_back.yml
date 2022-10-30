@@ -31,7 +31,7 @@ env:
 on:
   push:
     branches:
-      - static-web-app-deployment-test
+      - main
   workflow_dispatch:
 
 permissions:

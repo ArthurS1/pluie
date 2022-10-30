@@ -3,11 +3,11 @@ name: Deploy Front
 on:
   push:
     branches:
-      - static-web-app-deployment-test
+      - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-      - static-web-app-deployment-test
+      - main
 
 jobs:
   build_and_deploy_job:
