@@ -12,12 +12,22 @@ function sendMessageError(res, status, message) {
 }
 
 router.get("/", (req, res) => {
-    UsersModel.find((err, docs) => {
-        if (!err) {
-            res.status(200).send({ status: 200, users: docs });
-            console.log(docs);
-        } else res.status(200).send({ status: 400, message: "ERROR get data DB !" });
-    });
+    if (req.query.tokenAuth) {
+        UsersModel.findOne({ tokenAuth: req.query.tokenAuth }, function (err, doc) {
+            if (err) return res.status(200).send({ status: 400, message: "ERROR get data DB !" });
+            console.log(doc);
+            if (!doc || err)
+                return res.status(200).send({ status: 401, message: "User doesn't exist !" });
+            return res.status(200).send({ status: 200, users: doc });
+        });
+    } else {
+        UsersModel.find((err, docs) => {
+            if (!err) {
+                res.status(200).send({ status: 200, users: docs });
+                console.log(docs);
+            } else res.status(200).send({ status: 400, message: "ERROR get data DB !" });
+        });
+    }
 });
 
 router.post("/signup", (req, res) => {
@@ -109,11 +119,10 @@ router.post("/login/google", (req, res) => {
                 tokenAuth: req.body.tokenAuth,
                 google: true,
             });
-            console.log(req.body.tokenAuth);
+
             newUser
                 .save()
                 .then(function (docs) {
-                    console.log(docs);
                     return res.status(200).send({
                         status: 200,
                         tokenAuth: docs.tokenAuth,
@@ -129,7 +138,6 @@ router.post("/login/google", (req, res) => {
             UsersModel.updateOne({ _id: doc._id }, { tokenAuth: req.body.tokenAuth }).then(
                 function (suc) {
                     UsersModel.findOne({ _id: doc._id }, function (err, docs) {
-                        console.log(docs);
                         return res.status(200).send({
                             status: 200,
                             tokenAuth: docs.tokenAuth,
@@ -143,16 +151,96 @@ router.post("/login/google", (req, res) => {
     });
 });
 
-router.patch("/widget", (req, res) => {
-    UsersModel.updateOne({ tokenAuth: req.body.tokenAuth }, { widgets: req.body.widgets })
+router.get("/widget", (req, res) => {
+    UsersModel.findOne({ tokenAuth: req.query.tokenAuth })
         .then(function (suc) {
-            console.log(suc);
-            console.log("body =>");
-            console.log(req.body);
-            return res.status(200).send({ status: 200, message: "Widget update !" });
+            return res.status(200).send({
+                status: 200,
+                tokenAuth: suc.tokenAuth,
+                widgets: suc.widgets,
+                message: "Widget du client !",
+            });
         })
         .catch(function (err) {
-            return res.status(200).send({ status: 400, message: "Not possible update widget !" });
+            return res.status(200).send({ status: 400, message: "Not possible get widget !" });
+        });
+});
+
+router.delete("/widget", (req, res) => {
+    if (!req.body.tokenAuth || !req.body.id)
+        return sendMessageError(res, 400, "Not value information");
+    UsersModel.findOne({ tokenAuth: req.body.tokenAuth })
+        .then(function (suc) {
+            var newWidgets = suc.widgets.filter((obj) => obj.id !== req.body.id);
+
+            var idExist = suc.widgets.filter((obj) => obj.id === req.body.id);
+
+            if (idExist.length > 0) {
+                UsersModel.updateOne({ tokenAuth: req.body.tokenAuth }, { widgets: newWidgets })
+                    .then(function (suc) {
+                        return res
+                            .status(200)
+                            .send({ status: 200, message: "Widget update !", widgets: newWidgets });
+                    })
+                    .catch(function (err) {
+                        return res
+                            .status(200)
+                            .send({ status: 400, message: "Not possible update widget !" });
+                    });
+            } else
+                return res
+                    .status(200)
+                    .send({ status: 400, message: "The ID Widgets doesn't exist !" });
+        })
+        .catch(function (err) {
+            return res.status(200).send({ status: 400, message: "Not possible get widget !" });
+        });
+});
+
+router.patch("/widget", (req, res) => {
+    var widgets;
+    if (!req.body.widget || !req.body.tokenAuth)
+        return sendMessageError(res, 400, "Not value information");
+
+    UsersModel.findOne({ tokenAuth: req.body.tokenAuth })
+        .then(function (suc) {
+            widgets = suc.widgets;
+            var index = 0;
+            if (widgets.length > 0) {
+                index = widgets[widgets.length - 1].id;
+            }
+            if (
+                req.body.widget.name &&
+                req.body.widget.description &&
+                req.body.widget.params &&
+                req.body.widget.params.city &&
+                req.body.widget.params.days
+            ) {
+                widgets.push({
+                    id: index + 1,
+                    name: req.body.widget.name,
+                    description: req.body.widget.description,
+                    params: {
+                        city: req.body.widget.params.city,
+                        days: req.body.widget.params.days,
+                    },
+                });
+                UsersModel.updateOne({ tokenAuth: req.body.tokenAuth }, { widgets: widgets })
+                    .then(function (suc) {
+                        return res
+                            .status(200)
+                            .send({ status: 200, message: "Widget update !", widgets: widgets });
+                    })
+                    .catch(function (err) {
+                        return res
+                            .status(200)
+                            .send({ status: 400, message: "Not possible update widget !" });
+                    });
+            } else
+                return res.status(200).send({ status: 400, message: "Not possible get widget !" });
+        })
+        .catch(function (err) {
+            return res.status(200).send({ status: 400, message: "Not possible get widget !" });
         });
 });
 

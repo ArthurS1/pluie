@@ -6,9 +6,6 @@ const serviceRoute = require("./controllers/servicesControllers");
 const port = 8080;
 const usersRoute = require("./controllers/usersControllers");
 const bodyParser = require("body-parser");
-const http = require("http");
-
-var httpServer = http.createServer(app);
 
 app.use(
     cors({
@@ -17,11 +14,14 @@ app.use(
 );
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/", function (req, res) {
+    res.send("Hello World!  Use Azure!");
+});
 app.use(bodyParser.json());
 
 app.use("/service/api", serviceRoute);
 app.use("/users", usersRoute);
 
-httpServer.listen(port, () => {
+app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
