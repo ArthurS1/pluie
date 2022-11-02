@@ -33,9 +33,7 @@ function App() {
 
   return (
     <div className="App">
-      <div>
-        <Topbar />
-      </div>
+      <Topbar />
       <div
         style={{
           gridTemplateColumns: "repeat(4, 1fr)",

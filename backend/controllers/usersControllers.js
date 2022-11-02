@@ -52,7 +52,7 @@ router.post("/signup", (req, res) => {
                 "^[a-z0-9]+([_|.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|.|-]{1}[a-z0-9]+)*[.]{1}[a-z]{2,6}$",
                 "i"
             );
-            if (!reg.test(req.body.mail)) return sendMessageError(res, 404, "Mail non valid !");
+            if (!reg.test(req.body.mail)) return sendMessageError(res, 404, "Unvalid Mail !");
             const newUser = new UsersModel({
                 username: req.body.username,
                 mail: req.body.mail,
