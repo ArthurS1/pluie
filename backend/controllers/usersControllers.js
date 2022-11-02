@@ -178,9 +178,11 @@ router.delete("/widget", (req, res) => {
             if (idExist.length > 0) {
                 UsersModel.updateOne({ tokenAuth: req.body.tokenAuth }, { widgets: newWidgets })
                     .then(function (suc) {
-                        return res
-                            .status(200)
-                            .send({ status: 200, message: "Widget update !", widgets: newWidgets });
+                        return res.status(200).send({
+                            status: 200,
+                            message: "Widget deleted !",
+                            widgets: newWidgets,
+                        });
                     })
                     .catch(function (err) {
                         return res
@@ -193,11 +195,50 @@ router.delete("/widget", (req, res) => {
                     .send({ status: 400, message: "The ID Widgets doesn't exist !" });
         })
         .catch(function (err) {
-            return res.status(200).send({ status: 400, message: "Not possible get widget !" });
+            return res.status(200).send({ status: 400, message: "The User Token doesn't exist !" });
         });
 });
 
 router.patch("/widget", (req, res) => {
+    var widgets;
+    if (!req.body.id || !req.body.tokenAuth || !req.body.widget)
+        return sendMessageError(res, 400, "Not value information");
+
+    UsersModel.findOne({ tokenAuth: req.body.tokenAuth })
+        .then(function (suc) {
+            widgets = suc.widgets;
+            for (let i = 0; i < widgets.length; i++) {
+                if (widgets[i].id === req.body.id) {
+                    if (req.body.widget.name) widgets[i].name = req.body.widget.name;
+                    if (req.body.widget.description)
+                        widgets[i].description = req.body.widget.description;
+                    if (req.body.widget.params) {
+                        if (req.body.widget.params.city)
+                            widgets[i].params.city = req.body.widget.params.city;
+                        if (req.body.widget.params.days)
+                            widgets[i].params.days = req.body.widget.params.days;
+                    }
+                }
+            }
+
+            UsersModel.updateOne({ tokenAuth: req.body.tokenAuth }, { widgets: widgets })
+                .then(function (suc) {
+                    return res
+                        .status(200)
+                        .send({ status: 200, message: "Widget update !", widgets: widgets });
+                })
+                .catch(function (err) {
+                    return res
+                        .status(200)
+                        .send({ status: 400, message: "Not possible update widget !" });
+                });
+        })
+        .catch(function (err) {
+            return res.status(200).send({ status: 400, message: "The User Token doesn't exist !" });
+        });
+});
+
+router.post("/widget", (req, res) => {
     var widgets;
     if (!req.body.widget || !req.body.tokenAuth)
         return sendMessageError(res, 400, "Not value information");
