@@ -11,8 +11,12 @@ import TextField from "@mui/material/TextField";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import { useLocation } from "react-router-dom"
 
 function App() {
+  const location = useLocation()
+  const tokenAuth = location.state.tokenAuth
+  const username = location.state.username
   const [selectedCity, setSelectedCity] = useState("");
   const [open, setOpen] = useState(false);
   const [widgets, setWidgets] = useState([]);
