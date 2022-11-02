@@ -3,7 +3,7 @@ const cors = require("cors");
 const app = express();
 require("./models/dbConfig");
 const serviceRoute = require("./controllers/servicesControllers");
-const port = 8080;
+const port = 8082;
 const usersRoute = require("./controllers/usersControllers");
 const bodyParser = require("body-parser");
 

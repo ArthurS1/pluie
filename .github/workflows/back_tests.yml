@@ -1,0 +1,26 @@
+name: Backend Testing
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  unit_tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "backend"
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      name: Use Node.js 18.x
+      with:
+        node-version: 18.x
+        cache: 'npm'
+        cache-dependency-path: ./backend/package-lock.json
+    - run: npm ci
+      name: Install dependencies
+    - run: echo todo
+      name: To do
