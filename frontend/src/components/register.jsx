@@ -23,7 +23,7 @@ const Register = () => {
                 if (response.data.status !== 200)
                     setError(response.data.message)
                 else
-                    setMessage(response.data.message)
+                    setMessage("Account created !")
             });
     }
 
@@ -52,7 +52,7 @@ const Register = () => {
                         <input type="password" name="password" value={password} onChange={event => setPassword(event.target.value)} required />
                     </div>
                     <div className="button-container">
-                        <button onClick={handleSubmit}>Submit</button>
+                        <button onClick={handleSubmit}>Register</button>
                     </div>
                 </div>
                 <div className="Registration">

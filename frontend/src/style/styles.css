@@ -23,6 +23,10 @@ input, button {
   outline: none;
 }
 
+.buttons-container {
+  display: flex;
+}
+
 .Application {
   height: 100vh;
   display: flex;
@@ -131,12 +135,36 @@ input[type="submit"]:hover {
   cursor: pointer;
 }
 
-.form-inner button:hover {
+.LoginButtons {
+  display: flex;
+}
+
+
+.ButtonGoogle {
+  background-color: red !important;
+  box-shadow: rgb(0 0 0 / 24%) 0px 0px 0px 0px, rgb(0 0 0 / 24%) 0px 0px 0px 0px !important;
+  border: 2px solid #acd7ff !important;
+  width: 61%;
+}
+
+.Signin {
+  width: 39%;
+  display: flex;
+  justify-content: end;
+}
+
+.button-container button {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.form-inner .button-container button:hover {
   background-position: 100% 0%;
 }
 
 .Registration {
   display: flex;
   justify-content: end;
-  padding: 10px;
+  padding: 10px 30px 30px 30px;
 }
