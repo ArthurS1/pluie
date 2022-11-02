@@ -93,7 +93,6 @@ const Login = () => {
                         <GoogleLogin
                             className="ButtonGoogle"
                             clientId={clientID}
-                            //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
                             onSuccess={responseGoogle}
                             onFailure={handleFailure}
                             cookiePolicy={'single_host_origin'}
