@@ -2,7 +2,7 @@ import Topbar from "./components/topbar";
 import Widget from "./components/widget";
 import Button from "@mui/material/Button";
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
@@ -11,15 +11,54 @@ import TextField from "@mui/material/TextField";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import { useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom";
+
+const GetWidgets = ({ tokenAuth, selectedCity, open }) => {
+  const [widgets, setWidgets] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8082/users/widget?tokenAuth=" + tokenAuth)
+      .then((response) => {
+        if (response.data.widgets.length === 0) {
+          return null;
+        }
+        setWidgets(response.data.widgets);
+      });
+  }, [selectedCity, tokenAuth, open]);
+
+  let handleDelete = (id) => {
+    axios
+      .delete("http://localhost:8082/users/widget/", {
+        data: { tokenAuth: tokenAuth, id: id },
+      })
+      .then((response) => {
+        console.warn(response);
+        setWidgets(response.data.widgets);
+      });
+  };
+
+  return (
+    <>
+      {widgets.map((widget) => {
+        return (
+          <Widget
+            city={widget.params.city}
+            key={widget.id}
+            id={widget.id}
+            handleDelete={handleDelete}
+          />
+        );
+      })}
+    </>
+  );
+};
 
 function App() {
-  const location = useLocation()
-  const tokenAuth = location.state.tokenAuth
-  const username = location.state.username
+  const location = useLocation();
+  const tokenAuth = location.state.tokenAuth;
+  const username = location.state.username;
   const [selectedCity, setSelectedCity] = useState("");
   const [open, setOpen] = useState(false);
-  const [widgets, setWidgets] = useState([]);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -37,19 +76,19 @@ function App() {
 
   return (
     <div className="App">
-      <Topbar />
+      <Topbar username={username} />
       <div
         style={{
           gridTemplateColumns: "repeat(4, 1fr)",
           display: "grid",
           gap: "64px",
           marginTop: "32px",
-          marginLeft: "32px",
+          marginLeft: "5vw",
+          marginRight: "5vw",
+          marginBottom: "32px",
         }}
       >
-        {widgets.map((w, i) => {
-          return <Widget city={w} key={i} />;
-        })}
+        <GetWidgets tokenAuth={tokenAuth} selectedCity={selectedCity} open={open} />
       </div>
       <div>
         <Button
@@ -125,8 +164,18 @@ function App() {
                         notify("The city was not found");
                         return;
                       }
-                      setWidgets([...widgets, selectedCity]);
-                      handleClose();
+                      axios
+                        .post("http://localhost:8082/users/widget", {
+                          tokenAuth: tokenAuth,
+                          widget: {
+                            name: selectedCity + " weather",
+                            description: "weather of : " + selectedCity,
+                            params: { city: selectedCity, days: "1" },
+                          },
+                        })
+                        .then((response) => {
+                          handleClose();
+                        });
                     });
                 } else {
                   notify("Please enter a city name");
