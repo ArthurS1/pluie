@@ -17,7 +17,7 @@ const GetWidgets = ({ tokenAuth, selectedCity, open }) => {
   const [widgets, setWidgets] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8082/users/widget?tokenAuth=" + tokenAuth)
+      .get("http://pluie-back.azurewebsites.net/users/widget?tokenAuth=" + tokenAuth)
       .then((response) => {
         if (response.data.widgets.length === 0) {
           return null;
@@ -28,7 +28,7 @@ const GetWidgets = ({ tokenAuth, selectedCity, open }) => {
 
   let handleDelete = (id) => {
     axios
-      .delete("http://localhost:8082/users/widget/", {
+      .delete("http://pluie-back.azurewebsites.net/users/widget/", {
         data: { tokenAuth: tokenAuth, id: id },
       })
       .then((response) => {
@@ -156,7 +156,7 @@ function App() {
               onClick={() => {
                 if (selectedCity !== "") {
                   axios
-                    .get("http://localhost:8082/service/api/weather", {
+                    .get("http://pluie-back.azurewebsites.net/service/api/weather", {
                       params: { city: selectedCity, days: 1 },
                     })
                     .then((response) => {
@@ -165,7 +165,7 @@ function App() {
                         return;
                       }
                       axios
-                        .post("http://localhost:8082/users/widget", {
+                        .post("http://pluie-back.azurewebsites.net/users/widget", {
                           tokenAuth: tokenAuth,
                           widget: {
                             name: selectedCity + " weather",
