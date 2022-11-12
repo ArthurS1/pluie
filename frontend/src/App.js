@@ -17,7 +17,7 @@ const GetWidgets = ({ tokenAuth, selectedCity, open }) => {
   const [widgets, setWidgets] = useState([]);
   useEffect(() => {
     axios
-      .get("http://pluie-back.azurewebsites.net/users/widget?tokenAuth=" + tokenAuth)
+      .get("https://pluie-back.azurewebsites.net/users/widget?tokenAuth=" + tokenAuth)
       .then((response) => {
         if (response.data.widgets.length === 0) {
           return null;
@@ -28,7 +28,7 @@ const GetWidgets = ({ tokenAuth, selectedCity, open }) => {
 
   let handleDelete = (id) => {
     axios
-      .delete("http://pluie-back.azurewebsites.net/users/widget/", {
+      .delete("https://pluie-back.azurewebsites.net/users/widget/", {
         data: { tokenAuth: tokenAuth, id: id },
       })
       .then((response) => {
