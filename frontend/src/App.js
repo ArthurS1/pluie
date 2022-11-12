@@ -156,7 +156,7 @@ function App() {
               onClick={() => {
                 if (selectedCity !== "") {
                   axios
-                    .get("http://pluie-back.azurewebsites.net/service/api/weather", {
+                    .get("https://pluie-back.azurewebsites.net/service/api/weather", {
                       params: { city: selectedCity, days: 1 },
                     })
                     .then((response) => {
@@ -165,7 +165,7 @@ function App() {
                         return;
                       }
                       axios
-                        .post("http://pluie-back.azurewebsites.net/users/widget", {
+                        .post("https://pluie-back.azurewebsites.net/users/widget", {
                           tokenAuth: tokenAuth,
                           widget: {
                             name: selectedCity + " weather",

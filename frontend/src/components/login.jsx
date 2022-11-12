@@ -19,7 +19,7 @@ const Login = () => {
       password: password,
     };
     axios
-      .post("http://pluie-back.azurewebsites.net/users/login", param)
+      .post("https://pluie-back.azurewebsites.net/users/login", param)
       .then((response) => {
         console.log(response.data);
         setError("");
@@ -59,7 +59,7 @@ const Login = () => {
       tokenAuth: response.accessToken,
     };
     axios
-      .post("http://pluie-back.azurewebsites.net/users/login/google", param)
+      .post("https://pluie-back.azurewebsites.net/users/login/google", param)
       .then((response) => {
         console.log(response.data);
         setError("");

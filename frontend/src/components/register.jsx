@@ -16,7 +16,7 @@ const Register = () => {
       password: password,
     };
     axios
-      .post("http://pluie-back.azurewebsites.net/users/signup", param)
+      .post("https://pluie-back.azurewebsites.net/users/signup", param)
       .then((response) => {
         setError("");
         setMessage("");
