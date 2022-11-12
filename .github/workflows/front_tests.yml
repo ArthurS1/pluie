@@ -19,7 +19,7 @@ jobs:
       with:
         node-version: 18.x
         cache: 'npm'
-        cache-dependency-path: ./frontend/package-lock.json
+        cache-dependency-path: package-lock.json
     - run: npm ci
       name: Install dependencies
     - run: npm run test
@@ -37,6 +37,6 @@ jobs:
       with:
         node-version: 18.x
         cache: 'npm'
-        cache-dependency-path: ./frontend/package-lock.json
+        cache-dependency-path: package-lock.json
     - run: echo todo
       name: To do
