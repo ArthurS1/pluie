@@ -13,7 +13,7 @@ export default function Widget({ city, id, handleDelete }) {
 
   const getWeatherData = async () => {
     axios
-      .get("http://localhost:8082/service/api/weather", {
+      .get("https://pluie-back.azurewebsites.net/service/api/weather", {
         params: { city: city, days: 1 },
       })
       .then((response) => {
