@@ -21,6 +21,12 @@ jobs:
         key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
     - run: npm install
       name: Install dependencies
+    - run : pip install robotframework
+      name: Install robotframework
+    - run : pip install robotframework-faker
+      name: Install Faker library
+    - run : pip install --upgrade robotframework-seleniumlibrary
+      name: Install Selenium
     - run: npm run test
       name: Running unit tests
   system_tests:
