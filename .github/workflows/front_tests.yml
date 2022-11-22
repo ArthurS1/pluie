@@ -46,11 +46,3 @@ jobs:
         key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
     - run: echo todo
       name: To do
-  robot_test:
-    runs-on: ubuntu-latest
-    name: Run Robot Framework Tests
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Robot Framework
-        uses: joonvena/robotframework-docker-action@v1.0
