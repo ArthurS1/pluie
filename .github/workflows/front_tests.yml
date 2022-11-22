@@ -28,8 +28,6 @@ jobs:
     - run : pip install --upgrade robotframework-seleniumlibrary
       name: Install Selenium
     - run : sudo apt-get install chromium-chromedriver
-      name: Install Chrome driver
-    - run : pip install chromedriver-py
       name : Install Chrome driver 2
     - run: npm run test
       name: Running unit tests
@@ -48,3 +46,11 @@ jobs:
         key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
     - run: echo todo
       name: To do
+  robot_test:
+    runs-on: ubuntu-latest
+    name: Run Robot Framework Tests
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Robot Framework
+        uses: joonvena/robotframework-docker-action@v1.0
