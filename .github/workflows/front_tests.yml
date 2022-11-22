@@ -40,7 +40,6 @@ jobs:
         sudo mv chromedriver /usr/bin/chromedriver
         sudo chown root:root /usr/bin/chromedriver
         sudo chmod +x /usr/bin/chromedriver
-        chromedriver --url-base=/wd/hub
     - run: npm run test
       name: Running unit tests
   system_tests:
