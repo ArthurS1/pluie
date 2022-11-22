@@ -7,21 +7,30 @@ on:
 
 jobs:
   unit_tests:
-   runs-on: ubuntu-latest
-   steps :
-    - uses: actions/checkout@v2
-    - name: Execute tests
-      uses: joonvena/robotframework-docker-action@v0.1
-      env:
-        BROWSER: chrome
-        ROBOT_TESTS_DIR: ${{ github.workspace }}/tests
-        ROBOT_REPORTS_DIR: ${{ github.workspace }}/tests/results
-    - name: Upload test results
-      uses: actions/upload-artifact@v1
-      if: always()
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "./frontend"
+    steps:
+    - uses: actions/checkout@v3
+    - name: Cache node_modules
+      uses: actions/cache@v3
       with:
-        name: reports
-        path: ${{ github.workspace }}/tests/results
+        path: node_modules
+        key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+    - run: npm install
+      name: Install dependencies
+    - run : pip install robotframework
+      name: Install robotframework
+    - run : pip install robotframework-faker
+      name: Install Faker library
+    - run : pip install --upgrade robotframework-seleniumlibrary
+      name: Install Selenium
+    - run : sudo apt-get install chromium-chromedriver
+      name : Install Chrome driver 2
+    - run: npm run test
+      name: Running unit tests
   system_tests:
     name: System Tests
     runs-on: ubuntu-latest
