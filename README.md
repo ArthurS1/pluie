@@ -5,20 +5,37 @@
 
 ----
 
-# pluie
-A weather app for academic purpose.
+# Pluie
+A weather dashboard designed for DES424 at SIIT, Thammasat University.
 
-# Goals
+# Table of contents
+- [Motivation and goals](#Motivation-and-goals)
+- [Local deployment](#Local-deployment)
+- [Cloud deployment](#Cloud-deployment)
+- [User manual](#User-manual)
+
+# Motivation and goals
+
+## Motivation
+
+As part of the DES424 course at SIIT we have to create a software project.
+The allowed time is 4 months.
+
+## Pedagogical goals
 - Have sane development principles
-- Use of teamwork
-- Showcase the use of cloud resources with Azure Student account
+- Get used to teamwork
+- Learn how to use cloud resources through the Azure platform
 
-# How to run locally
-- set the API_URL environment variable
-- locate and run the compose.yml file
-- enjoy !
+# Local deployment
+1. Set the `API_URL` environment variable to 'http://localhost:8080'
+2. Locate the docker-compose.yml file
+3. Run `docker-compose up -d`.
+If there is an error, please `docker-compose down` first or try with `docker-compose up --force-recreate -d`
 
-# How to run on the cloud
-- each push on main invoques the CI
+# Cloud deployment
+1. Fork this repository
 - the CI tests the frontend and backend
 - the CI deploys the apps on Azure
+
+# User manual
+Please find the user manual [on this page](http://google.fr)
