@@ -1,16 +1,16 @@
 *** Settings ***
-Documentation     Simple example using SeleniumLibrary.
+Documentation     Testing file for Pluie cloud application
 Library           SeleniumLibrary    screenshot_root_directory=../tests//SeleniumScreenshots
 Library           FakerLibrary    locale=de_DE  
 
 
 *** Variables ***
-${LOGIN URL}      http://localhost:3000
-${BROWSER}        Chrome
-${INVALID_EMAIL}  invalidMail.com
-${USERNAME_IN_USE}       demo123
-${PASSWORD}       azure
-${EMAIL_IN_USE}   demo@gmail.com
+${LOGIN URL}          http://localhost:3000
+${BROWSER}            Chrome
+${INVALID_EMAIL}      invalidMail.com
+${USERNAME_IN_USE}    demo123
+${PASSWORD}           azure
+${EMAIL_IN_USE}       demo@gmail.com
 
 
 *** Test Cases ***
@@ -63,7 +63,7 @@ ${EMAIL_IN_USE}   demo@gmail.com
     Click Button    id=register-btn-login
 
 
-7. Register With New Credentials
+6. Register With New Credentials
     Click Button    id=login-btn-register
     Get Text        id=register-h2
     ${RANDOM_EMAIL}=    FakerLibrary.Email 
@@ -77,11 +77,10 @@ ${EMAIL_IN_USE}   demo@gmail.com
     Click Button    id=register-btn-login
 
 
-8. Demo Login
+7. Demo Login
     Input Text      id=login-input-email       ${EMAIL_IN_USE}
     Input Text      id=login-input-password    ${PASSWORD}
     Click Button    id=login-btn-signin
-
-
-9. Check Welcome Screen
-    Current Frame Should Contain    Pluie
+    Location Should Be    http://localhost:3000/home
+    
+    
