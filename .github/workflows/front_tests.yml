@@ -28,18 +28,7 @@ jobs:
     - run : pip install --upgrade robotframework-seleniumlibrary
       name: Install Selenium
     - name : Install Chrome driver
-      run : | #sudo apt-get install chromium-chromedriver
-        sudo apt update
-        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        sudo apt install wget
-        sudo dpkg -i google-chrome-stable_current_amd64.deb
-        sudo apt-get install -f
-        google-chrome --version
-        wget https://chromedriver.storage.googleapis.com/92.0.4515.107/chromedriver_linux64.zip
-        unzip chromedriver_linux64.zip
-        sudo mv chromedriver /usr/bin/chromedriver
-        sudo chown root:root /usr/bin/chromedriver
-        sudo chmod +x /usr/bin/chromedriver
+      run : sudo apt-get install chromium-chromedriver
     - run: npm run test
       name: Running unit tests
   system_tests:
