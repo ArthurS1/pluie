@@ -29,6 +29,10 @@ jobs:
       name: Install Selenium
     - run : sudo apt-get install chromium-chromedriver
       name: Install Chrome driver
+    - run : php artisan dusk:chrome-driver `/opt/google/chrome/chrome --version | cut -d " " -f3 | cut -d "." -f1`
+      name : Install Chrome driver 2
+    - run : ./vendor/laravel/dusk/bin/chromedriver-linux &
+      name : Start Chrome
     - run: npm run test
       name: Running unit tests
   system_tests:
