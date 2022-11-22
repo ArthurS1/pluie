@@ -21,7 +21,7 @@ A weather dashboard designed for DES424 at SIIT, Thammasat University.
 As part of the DES424 course at SIIT we have to create a software project.
 The allowed time is 4 months.
 
-## Pedagogical gloals
+## Pedagogical goals
 - Have sane development principles
 - Get used to teamwork
 - Learn how to use cloud resources through the Azure platform
