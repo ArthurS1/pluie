@@ -38,4 +38,4 @@ If there is an error, please `docker-compose down` first or try with `docker-com
 - the CI deploys the apps on Azure
 
 # User manual
-Please find the user manual [on this page](http://google.fr)
+Please find the user manual [on this page](https://docs.google.com/document/d/1hxS43WA_QBNlWyQEntZZn7SXKnnNLzzQ4VlVBb3b8Yo/edit#bookmark=id.muicbp14dwt7)
