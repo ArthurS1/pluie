@@ -5,7 +5,7 @@ Library           FakerLibrary    locale=de_DE
 
 
 *** Variables ***
-${LOGIN URL}          http://localhost:3000
+${LOGIN URL}          https://proud-pebble-0506c4700.2.azurestaticapps.net/
 ${BROWSER}            Chrome
 ${INVALID_EMAIL}      invalidMail.com
 ${USERNAME_IN_USE}    demo123
@@ -83,6 +83,6 @@ ${EMAIL_IN_USE}       demo@gmail.com
     Input Text      id=login-input-password    ${PASSWORD}
     Click Button    id=login-btn-signin
     Set Selenium Timeout    2 second
-    Location Should Be    http://localhost:3000/home
+    Location Should Be    https://proud-pebble-0506c4700.2.azurestaticapps.net/home
     
     
