@@ -34,12 +34,13 @@ const Register = () => {
     <div className="Application">
       <div className="form-inner">
         <div className="form">
-          <h2>Register</h2>
+          <h2 id="register-h2">Register</h2>
           {error !== "" ? <div className="error">{error}</div> : ""}
           {message !== "" ? <div className="message">{message}</div> : ""}
           <div className="input-container">
             <label>Email </label>
             <input
+              id="register-input-email"
               type="text"
               name="email"
               value={email}
@@ -50,6 +51,7 @@ const Register = () => {
           <div className="input-container">
             <label>Username </label>
             <input
+              id="register-input-username"
               type="text"
               name="username"
               value={username}
@@ -60,6 +62,7 @@ const Register = () => {
           <div className="input-container">
             <label>Password </label>
             <input
+              id="register-input-password"
               type="password"
               name="password"
               value={password}
@@ -68,12 +71,12 @@ const Register = () => {
             />
           </div>
           <div className="button-container">
-            <button onClick={handleSubmit}>Register</button>
+            <button id="register-btn-register" onClick={handleSubmit}>Register</button>
           </div>
         </div>
         <div className="Registration">
           <div className="buttons-container">
-            <button onClick={routeChange}>Login</button>
+            <button id="register-btn-login" onClick={routeChange}>Login</button>
           </div>
         </div>
       </div>

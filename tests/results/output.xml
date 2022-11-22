@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0 (Python 3.8.10 on linux)" generated="20221122 19:47:00.991" rpa="false" schemaversion="3">
+<suite id="s1" name="applicationTests" source="/home/rorofy/Epitech/Tek4 - Thammasat/DES424 - Cloud app/project/pluie/tests/applicationTests.robot">
+<test id="s1-t1" name="1. Open Website" line="17">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221122 19:47:01.125" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000'.</msg>
+<msg timestamp="20221122 19:47:02.487" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../SeleniumScreenshots/selenium-screenshot-1.png"&gt;&lt;img src="../SeleniumScreenshots/selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221122 19:47:02.487" level="FAIL">WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=107.0.5304.110)
+Stacktrace:
+#0 0x5608f2121463 &lt;unknown&gt;
+#1 0x5608f1ee58d8 &lt;unknown&gt;
+#2 0x5608f1eddb53 &lt;unknown&gt;
+#3 0x5608f1ed079a &lt;unknown&gt;
+#4 0x5608f1ed1c0a &lt;unknown&gt;
+#5 0x5608f1ed0b14 &lt;unknown&gt;
+#6 0x5608f1ecfcff &lt;unknown&gt;
+#7 0x5608f1ecfb10 &lt;unknown&gt;
+#8 0x5608f1ece6f4 &lt;unknown&gt;
+#9 0x5608f1eceaf2 &lt;unknown&gt;
+#10 0x5608f1ee7792 &lt;unknown&gt;
+#11 0x5608f1f5db2f &lt;unknown&gt;
+#12 0x5608f1f44622 &lt;unknown&gt;
+#13 0x5608f1f5d30f &lt;unknown&gt;
+#14 0x5608f1f44443 &lt;unknown&gt;
+#15 0x5608f1f153c5 &lt;unknown&gt;
+#16 0x5608f1f16531 &lt;unknown&gt;
+#17 0x5608f2173dce &lt;unknown&gt;
+#18 0x5608f2177192 &lt;unknown&gt;
+#19 0x5608f215893e &lt;unknown&gt;
+#20 0x5608f2178103 &lt;unknown&gt;
+#21 0x5608f214bd85 &lt;unknown&gt;
+#22 0x5608f21990a8 &lt;unknown&gt;
+#23 0x5608f2199239 &lt;unknown&gt;
+#24 0x5608f21b4492 &lt;unknown&gt;
+#25 0x7fe9156ddb43 &lt;unknown&gt;
+</msg>
+<status status="FAIL" starttime="20221122 19:47:01.125" endtime="20221122 19:47:02.489"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Pluie</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.489" endtime="20221122 19:47:02.489"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>0.3</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.489" endtime="20221122 19:47:02.490"/>
+</kw>
+<status status="FAIL" starttime="20221122 19:47:01.124" endtime="20221122 19:47:02.490">WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=107.0.5304.110)
+Stacktrace:
+#0 0x5608f2121463 &lt;unknown&gt;
+#1 0x5608f1ee58d8 &lt;unknown&gt;
+#2 0x5608f1eddb53 &lt;unknown&gt;
+#3 0x5608f1ed079a &lt;unknown&gt;
+#4 0x5608f1ed1c0a &lt;unknown&gt;
+#5 0x5608f1ed0b14 &lt;unknown&gt;
+#6 0x5608f1ecfcff &lt;unknown&gt;
+#7 0x5608f1ecfb10 &lt;unknown&gt;
+#8 0x5608f1ece6f4 &lt;unknown&gt;
+#9 0x5608f1eceaf2 &lt;unknown&gt;
+#10 0x5608f1ee7792 &lt;unknown&gt;
+#11 0x5608f1f5db2f &lt;unknown&gt;
+#12 0x5608f1f44622 &lt;unknown&gt;
+#13 0x5608f1f5d30f &lt;unknown&gt;
+#14 0x5608f1f44443 &lt;unknown&gt;
+#15 0x5608f1f153c5 &lt;unknown&gt;
+#16 0x5608f1f16531 &lt;unknown&gt;
+#17 0x5608f2173dce &lt;unknown&gt;
+#18 0x5608f2177192 &lt;unknown&gt;
+#19 0x5608f215893e &lt;unknown&gt;
+#20 0x5608f2178103 &lt;unknown&gt;
+#21 0x5608f214bd85 &lt;unknown&gt;
+#22 0x5608f21990a8 &lt;unknown&gt;
+#23 0x5608f2199239 &lt;unknown&gt;
+#24 0x5608f21b4492 &lt;unknown&gt;
+#25 0x7fe9156ddb43 &lt;unknown&gt;
+</status>
+</test>
+<test id="s1-t2" name="2. Check Elements of Login Page" line="23">
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>id=login-h2</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221122 19:47:02.601" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../SeleniumScreenshots/selenium-screenshot-2.png"&gt;&lt;img src="../SeleniumScreenshots/selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221122 19:47:02.601" level="FAIL">Element with locator 'id=login-h2' not found.</msg>
+<status status="FAIL" starttime="20221122 19:47:02.490" endtime="20221122 19:47:02.602"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>id=login-input-email</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.602" endtime="20221122 19:47:02.602"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>id=login-input-password</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.603" endtime="20221122 19:47:02.603"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>id=login-btn-register</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.603" endtime="20221122 19:47:02.603"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>id=login-btn-signin</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.603" endtime="20221122 19:47:02.603"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>class=ButtonGoogle</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.603" endtime="20221122 19:47:02.603"/>
+</kw>
+<status status="FAIL" starttime="20221122 19:47:02.490" endtime="20221122 19:47:02.603">Element with locator 'id=login-h2' not found.</status>
+</test>
+<test id="s1-t3" name="3 Check Invalid Login Data" line="32">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=login-input-email</arg>
+<arg>${INVALID_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221122 19:47:02.605" level="INFO">Typing text 'invalidMail.com' into text field 'id=login-input-email'.</msg>
+<msg timestamp="20221122 19:47:02.719" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../SeleniumScreenshots/selenium-screenshot-3.png"&gt;&lt;img src="../SeleniumScreenshots/selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221122 19:47:02.720" level="FAIL">Element with locator 'id=login-input-email' not found.</msg>
+<status status="FAIL" starttime="20221122 19:47:02.604" endtime="20221122 19:47:02.721"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=login-input-password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.721" endtime="20221122 19:47:02.721"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id=login-btn-signin</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.721" endtime="20221122 19:47:02.721"/>
+</kw>
+<kw name="Set Selenium Timeout" library="SeleniumLibrary">
+<arg>2 second</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.721" endtime="20221122 19:47:02.721"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Invalid information !</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.721" endtime="20221122 19:47:02.721"/>
+</kw>
+<status status="FAIL" starttime="20221122 19:47:02.604" endtime="20221122 19:47:02.722">Element with locator 'id=login-input-email' not found.</status>
+</test>
+<test id="s1-t4" name="4. Register With Email Already In Use" line="40">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id=login-btn-register</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221122 19:47:02.723" level="INFO">Clicking button 'id=login-btn-register'.</msg>
+<msg timestamp="20221122 19:47:02.824" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../SeleniumScreenshots/selenium-screenshot-4.png"&gt;&lt;img src="../SeleniumScreenshots/selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221122 19:47:02.824" level="FAIL">Button with locator 'id=login-btn-register' not found.</msg>
+<status status="FAIL" starttime="20221122 19:47:02.722" endtime="20221122 19:47:02.824"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<arg>id=register-h2</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.824" endtime="20221122 19:47:02.824"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=register-input-email</arg>
+<arg>${EMAIL_IN_USE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.824" endtime="20221122 19:47:02.824"/>
+</kw>
+<kw name="FakerLibrary.Name">
+<var>${RANDOM_NAME}</var>
+<status status="NOT RUN" starttime="20221122 19:47:02.827" endtime="20221122 19:47:02.827"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=register-input-username</arg>
+<arg>${RANDOM_NAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.827" endtime="20221122 19:47:02.827"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=register-input-password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.828" endtime="20221122 19:47:02.828"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id=register-btn-register</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.828" endtime="20221122 19:47:02.828"/>
+</kw>
+<kw name="Set Selenium Timeout" library="SeleniumLibrary">
+<arg>2 second</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.828" endtime="20221122 19:47:02.828"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Mail already use !</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.828" endtime="20221122 19:47:02.828"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id=register-btn-login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.829" endtime="20221122 19:47:02.829"/>
+</kw>
+<status status="FAIL" starttime="20221122 19:47:02.722" endtime="20221122 19:47:02.829">Button with locator 'id=login-btn-register' not found.</status>
+</test>
+<test id="s1-t5" name="5. Register With Username Already In Use" line="53">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id=login-btn-register</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221122 19:47:02.830" level="INFO">Clicking button 'id=login-btn-register'.</msg>
+<msg timestamp="20221122 19:47:02.930" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../SeleniumScreenshots/selenium-screenshot-5.png"&gt;&lt;img src="../SeleniumScreenshots/selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221122 19:47:02.931" level="FAIL">Button with locator 'id=login-btn-register' not found.</msg>
+<status status="FAIL" starttime="20221122 19:47:02.830" endtime="20221122 19:47:02.931"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<arg>id=register-h2</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.931" endtime="20221122 19:47:02.931"/>
+</kw>
+<kw name="FakerLibrary.Email">
+<var>${RANDOM_EMAIL}</var>
+<status status="NOT RUN" starttime="20221122 19:47:02.935" endtime="20221122 19:47:02.935"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=register-input-email</arg>
+<arg>${RANDOM_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.935" endtime="20221122 19:47:02.935"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=register-input-username</arg>
+<arg>${USERNAME_IN_USE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.935" endtime="20221122 19:47:02.935"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=register-input-password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.936" endtime="20221122 19:47:02.936"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id=register-btn-register</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.936" endtime="20221122 19:47:02.936"/>
+</kw>
+<kw name="Set Selenium Timeout" library="SeleniumLibrary">
+<arg>2 second</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.936" endtime="20221122 19:47:02.936"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Username already use !</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.936" endtime="20221122 19:47:02.936"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id=register-btn-login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:02.936" endtime="20221122 19:47:02.936"/>
+</kw>
+<status status="FAIL" starttime="20221122 19:47:02.829" endtime="20221122 19:47:02.936">Button with locator 'id=login-btn-register' not found.</status>
+</test>
+<test id="s1-t6" name="6. Register With New Credentials" line="66">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id=login-btn-register</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221122 19:47:02.937" level="INFO">Clicking button 'id=login-btn-register'.</msg>
+<msg timestamp="20221122 19:47:03.044" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../SeleniumScreenshots/selenium-screenshot-6.png"&gt;&lt;img src="../SeleniumScreenshots/selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221122 19:47:03.044" level="FAIL">Button with locator 'id=login-btn-register' not found.</msg>
+<status status="FAIL" starttime="20221122 19:47:02.937" endtime="20221122 19:47:03.044"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<arg>id=register-h2</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:03.044" endtime="20221122 19:47:03.044"/>
+</kw>
+<kw name="FakerLibrary.Email">
+<var>${RANDOM_EMAIL}</var>
+<status status="NOT RUN" starttime="20221122 19:47:03.047" endtime="20221122 19:47:03.047"/>
+</kw>
+<kw name="FakerLibrary.Name">
+<var>${RANDOM_NAME}</var>
+<status status="NOT RUN" starttime="20221122 19:47:03.049" endtime="20221122 19:47:03.049"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=register-input-email</arg>
+<arg>${RANDOM_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:03.050" endtime="20221122 19:47:03.050"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=register-input-username</arg>
+<arg>${RANDOM_NAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:03.050" endtime="20221122 19:47:03.050"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=register-input-password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:03.050" endtime="20221122 19:47:03.050"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id=register-btn-register</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:03.050" endtime="20221122 19:47:03.050"/>
+</kw>
+<kw name="Set Selenium Timeout" library="SeleniumLibrary">
+<arg>2 second</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:03.050" endtime="20221122 19:47:03.051"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Account created !</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:03.051" endtime="20221122 19:47:03.051"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id=register-btn-login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:03.051" endtime="20221122 19:47:03.051"/>
+</kw>
+<status status="FAIL" starttime="20221122 19:47:02.937" endtime="20221122 19:47:03.051">Button with locator 'id=login-btn-register' not found.</status>
+</test>
+<test id="s1-t7" name="7. Demo Login" line="80">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=login-input-email</arg>
+<arg>${EMAIL_IN_USE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221122 19:47:03.052" level="INFO">Typing text 'demo@gmail.com' into text field 'id=login-input-email'.</msg>
+<msg timestamp="20221122 19:47:03.153" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../SeleniumScreenshots/selenium-screenshot-7.png"&gt;&lt;img src="../SeleniumScreenshots/selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221122 19:47:03.153" level="FAIL">Element with locator 'id=login-input-email' not found.</msg>
+<status status="FAIL" starttime="20221122 19:47:03.052" endtime="20221122 19:47:03.154"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=login-input-password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:03.154" endtime="20221122 19:47:03.154"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id=login-btn-signin</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:03.154" endtime="20221122 19:47:03.154"/>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>http://localhost:3000/home</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="NOT RUN" starttime="20221122 19:47:03.154" endtime="20221122 19:47:03.155"/>
+</kw>
+<status status="FAIL" starttime="20221122 19:47:03.052" endtime="20221122 19:47:03.155">Element with locator 'id=login-input-email' not found.</status>
+</test>
+<doc>Testing file for Pluie cloud application</doc>
+<status status="FAIL" starttime="20221122 19:47:00.992" endtime="20221122 19:47:03.156"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="7" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="7" skip="0" id="s1" name="applicationTests">applicationTests</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20221122 19:47:01.123" level="ERROR">Error in file '/home/rorofy/Epitech/Tek4 - Thammasat/DES424 - Cloud app/project/pluie/tests/applicationTests.robot' on line 4: Importing library 'FakerLibrary' failed: ModuleNotFoundError: No module named 'FakerLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /home/rorofy/.local/bin
+  /usr/lib/python38.zip
+  /usr/lib/python3.8
+  /usr/lib/python3.8/lib-dynload
+  /home/rorofy/.local/lib/python3.8/site-packages
+  /usr/local/lib/python3.8/dist-packages
+  /usr/lib/python3/dist-packages</msg>
+</errors>
+</robot>

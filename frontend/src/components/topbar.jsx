@@ -27,10 +27,13 @@ const TopBar = ({ username }) => {
             component="div"
             sx={{ flexGrow: 1 }}
             align="left"
+            
           >
-            Pluie
+          Pluie
+            
           </Typography>
           <IconButton
+            id="btn-icon"
             size="large"
             edge="start"
             color="inherit"

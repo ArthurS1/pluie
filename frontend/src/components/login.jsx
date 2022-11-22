@@ -83,12 +83,13 @@ const Login = () => {
     <div className="Application">
       <div className="form-inner">
         <div className="form">
-          <h2>Login</h2>
+          <h2 id="login-h2">Login</h2>
           {error !== "" ? <div className="error">{error}</div> : ""}
           {message !== "" ? <div className="message">{message}</div> : ""}
           <div className="input-container">
             <label>Email </label>
             <input
+              id="login-input-email"
               type="text"
               name="email"
               value={email}
@@ -99,6 +100,7 @@ const Login = () => {
           <div className="input-container">
             <label>Password </label>
             <input
+              id="login-input-password"
               type="password"
               name="password"
               value={password}
@@ -115,13 +117,13 @@ const Login = () => {
               cookiePolicy={"single_host_origin"}
             />
             <div className="button-container Signin">
-              <button onClick={handleSubmit}>Signin</button>
+              <button id="login-btn-signin" onClick={handleSubmit}>Sign in</button>
             </div>
           </div>
         </div>
         <div className="Registration button-container">
           <div className="buttons-container">
-            <button onClick={routeChange}>Register</button>
+            <button id="login-btn-register" onClick={routeChange}>Register</button>
           </div>
         </div>
       </div>

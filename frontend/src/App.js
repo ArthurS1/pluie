@@ -92,6 +92,7 @@ function App() {
       </div>
       <div>
         <Button
+          id="app-add-widget"
           variant="contained"
           style={{
             width: "200px",
